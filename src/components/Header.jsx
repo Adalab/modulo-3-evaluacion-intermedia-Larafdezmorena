@@ -1,8 +1,8 @@
 function Header() {
 
     return (
-      <header>
-        <h1>Frases de Friends</h1>
+      <header className="title">
+        Frases de Friends
       </header>
     );
   }
