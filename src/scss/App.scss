@@ -1,1 +1,24 @@
 @import 'core/reset';
+.app{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+.filter {
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+.quotes {
+    &__list{
+        display: flex;
+        justify-content: center;
+        list-style: none;
+    }
+}
+.name {
+    color: green;
+    font-size: 16px;
+}
