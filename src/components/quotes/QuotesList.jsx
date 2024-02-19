@@ -9,16 +9,11 @@ function QuotesList({ quotesList }) {
     </li>
   ));
 
-  return <ul className="quotes__list">{quotesHtml};</ul>;
+  return (<ul className="quotes__list">{quotesHtml}</ul>);
 }
 
 QuotesList.propTypes = {
-  quotesList: PropTypes.arrayOf(
-    PropTypes.shape({
-      quote: PropTypes.string.isRequired,
-      character: PropTypes.string,
-    })
-  ),
+  quotesList: PropTypes.array,
 };
 
 export default QuotesList;

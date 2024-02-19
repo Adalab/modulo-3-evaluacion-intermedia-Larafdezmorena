@@ -1,14 +1,12 @@
 import PropTypes from "prop-types";
 import FilterCharacter from "./FilterCharacter";
+import FilterQuote from "./FilterQuote";
 
 function Filters({ handleFilter }) {
   return (
     <form className="filter">
       <FilterCharacter handleFilter={handleFilter} />
-      <label className="filter__label" htmlFor="character">
-        Filtrar por frase
-        <input className="filter__input" type="text" name="quote" id="quote" />
-      </label>
+      <FilterQuote />
     </form>
   );
 }
