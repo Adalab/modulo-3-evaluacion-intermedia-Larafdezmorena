@@ -1,27 +1,51 @@
-//import { useState } from 'react';
+import { useState } from "react";
 
-import Header from './Header';
-import Form from './Filters';
-import List from './QuotesList';
+import Header from "./Header";
+import Filters from "./filters/Filters";
+import QuotesList from "./quotes/QuotesList";
 
-import '../scss/App.scss'
+import quotesOriginal from "../data/quotes.json";
 
-import DataQuotes from "../data/quotes.json";
-import { useState } from 'react';
+import "../scss/App.scss";
 
 function App() {
-const [quotes, setQuotes] = useState(DataQuotes);
+  const [quotesList] = useState(quotesOriginal);
+  
+  const [filterQuote, setFilterQuote] = useState('');
+  const [filterCharacter, setFilterCharacter] = useState("all");
 
+  const handleFilter = (filterName, value) => {
+    
+    if( filterName ==='quote'); {
+    setFilterQuote(value);
+    }
+    else if (filterName === 'character') {
+      setFilterCharacter(value);
+    }
+  };
+
+  const filteredQuotes = 
+  quotesList
+  .filter ( quote => quote.quote.includes(filterQuote))
+  .filter( quote  => {
+    if (filterCharacter === "all") {
+      return true;
+    } else {
+      return quote.character === filterCharacter;
+    }
+  });
+
+  //const filteredQuotes = quotesList.filter ( quote => {=== 'all' || quote.character===filterCharacter});
 
   return (
-    <div className='app'>
+    <div className="app">
       <Header />
       <main>
-       <Form />
-        <List quotes={quotes}/>
+        <Filters handleFilter={handleFilter} />
+        <QuoteList quotesList={filteredQuotes} />
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
