@@ -7,7 +7,13 @@ function FilterQuote({ handleFilter }) {
   return (
     <label className="filter__label" htmlFor="character">
       Filtrar por frase
-      <input className="filter__input" type="text" name="quote" id="quote" onInput={handleInputQuote}/>
+      <input
+        className="filter__input"
+        type="text"
+        name="quote"
+        id="quote"
+        onInput={handleInputQuote}
+      />
     </label>
   );
 }

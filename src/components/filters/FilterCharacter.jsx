@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 function FilterCharacter({ handleFilter }) {
   const handleInputCharacter = (event) => {
-    handleFilter(event.currentTarget.value);
+    handleFilter("character", event.currentTarget.value);
   };
   return (
     <label className="filter__label" htmlFor="character">

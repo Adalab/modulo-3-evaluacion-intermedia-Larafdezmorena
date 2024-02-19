@@ -15,22 +15,31 @@ import "../scss/App.scss";
 function App() {
   const [quotesList] = useState(quotesOriginal);
 
-  //const [filterQuote, setFilterQuote] = useState("");
+  const [filterQuote, setFilterQuote] = useState("");
   const [filterCharacter, setFilterCharacter] = useState("all");
 
-  const handleFilter = (value) => {
+  const handleFilter = (filterName, value) => {
+    console.log(filterName);
     console.log(value);
 
-    setFilterCharacter(value);
+    if (filterName === "quote") {
+      setFilterQuote(value);
+    } else if (filterName === "character") {
+      setFilterCharacter(value);
+    }
   };
 
-  const filteredQuotes = quotesList.filter((quote) => {
+  const filteredQuotesByCharacter = quotesList.filter((quote) => {
     if (filterCharacter === "all") {
       return true;
     } else {
       return quote.character === filterCharacter;
     }
   });
+
+  const filteredTotal = filteredQuotesByCharacter.filter((quote) =>
+    quote.quote.toLowerCase().includes(filterQuote)
+  );
 
   //const filteredQuotes = quotesList.filter ( quote => {=== 'all' || quote.character===filterCharacter});
 
@@ -39,7 +48,7 @@ function App() {
       <Header />
       <main>
         <Filters handleFilter={handleFilter} />
-        <QuotesList quotesList={filteredQuotes} />
+        <QuotesList quotesList={filteredTotal} />
       </main>
     </div>
   );

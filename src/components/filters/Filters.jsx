@@ -6,7 +6,7 @@ function Filters({ handleFilter }) {
   return (
     <form className="filter">
       <FilterCharacter handleFilter={handleFilter} />
-      <FilterQuote />
+      <FilterQuote handleFilter={handleFilter} />
     </form>
   );
 }
