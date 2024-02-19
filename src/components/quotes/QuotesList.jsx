@@ -13,7 +13,12 @@ function QuotesList({ quotesList }) {
 }
 
 QuotesList.propTypes = {
-  quotesList: PropTypes.array,
+  quotesList: PropTypes.arrayOf(
+    PropTypes.shape({
+      quote: PropTypes.string.isRequired,
+      character: PropTypes.string,
+    })
+  ),
 };
 
 export default QuotesList;

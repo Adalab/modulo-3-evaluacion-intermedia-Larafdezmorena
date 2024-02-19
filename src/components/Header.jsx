@@ -7,13 +7,3 @@ function Header() {
 }
 
 export default Header;
-
-
-    return (
-      <header className="title">
-        Frases de Friends
-      </header>
-    );
-  }
-  
-  export default Header;

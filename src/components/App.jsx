@@ -10,30 +10,30 @@ import "../scss/App.scss";
 
 function App() {
   const [quotesList] = useState(quotesOriginal);
-  
-  const [filterQuote, setFilterQuote] = useState('');
+
+  const [filterQuote, setFilterQuote] = useState("");
   const [filterCharacter, setFilterCharacter] = useState("all");
 
   const handleFilter = (filterName, value) => {
-    
-    if( filterName ==='quote'); {
-    setFilterQuote(value);
-    }
-    else if (filterName === 'character') {
+    console.log(filterName);
+    console.log(value);
+
+    if (filterName === "quote") {
+      setFilterQuote(value);
+    } else if (filterName === "character") {
       setFilterCharacter(value);
     }
   };
 
-  const filteredQuotes = 
-  quotesList
-  .filter ( quote => quote.quote.includes(filterQuote))
-  .filter( quote  => {
-    if (filterCharacter === "all") {
-      return true;
-    } else {
-      return quote.character === filterCharacter;
-    }
-  });
+  const filteredQuotes = quotesList
+    .filter((quote) => quote.quote.toLowerCase().includes(filterQuote))
+    .filter((quote) => {
+      if (filterCharacter === "all") {
+        return true;
+      } else {
+        return quote.character === filterCharacter;
+      }
+    });
 
   //const filteredQuotes = quotesList.filter ( quote => {=== 'all' || quote.character===filterCharacter});
 
@@ -42,7 +42,7 @@ function App() {
       <Header />
       <main>
         <Filters handleFilter={handleFilter} />
-        <QuoteList quotesList={filteredQuotes} />
+        <QuotesList quotesList={filteredQuotes} />
       </main>
     </div>
   );

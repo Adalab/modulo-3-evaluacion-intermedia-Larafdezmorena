@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 function QuoteItem({ quote, author }) {
   return (
     <h2 className="quotes__quote">
-      <spam>{quote}</spam>
-      <spam className="quotes__character">{author}</spam>
+      <div>{quote}</div>
+      <div className="quotes__character">{author}</div>
     </h2>
   );
 }
 
 QuoteItem.propTypes = {
-  quote: PropTypes.string,
+  quote: PropTypes.string.isRequired,
   author: PropTypes.string,
 };
 
